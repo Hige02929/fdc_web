@@ -1,78 +1,219 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FDC Web</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDC Web</title>
 
-    <style>
-        body {
-            background: #000;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .addon-box {
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #111;
-            border: 2px solid #333;
-            border-radius: 10px;
-        }
+body{
+    background:#000;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    padding:20px;
+}
 
-        img {
-            width: 150px;
-            border-radius: 10px;
-        }
+/* HEADER */
 
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+.header{
+    max-width:900px;
+    margin:auto;
+    margin-bottom:35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.left-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:8px;
+    object-fit:cover;
+    border:2px solid #444;
+}
+
+.title-box h2{
+    font-size:24px;
+}
+
+.title-box p{
+    margin-top:5px;
+    color:#bdbdbd;
+    font-size:13px;
+}
+
+.youtube img{
+    width:45px;
+    height:45px;
+    border-radius:8px;
+    transition:.25s;
+}
+
+.youtube img:hover{
+    transform:scale(1.1);
+}
+
+/* TITLE */
+
+.main-title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+/* ADDON */
+
+.addon-box{
+    max-width:430px;
+    margin:25px auto;
+    background:#111;
+    border:2px solid #333;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.addon-box:hover{
+    border-color:#00aaff;
+    box-shadow:0 0 20px rgba(0,170,255,.35);
+}
+
+.addon-box img.addon-image{
+    width:180px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+.addon-box h2{
+    margin-bottom:12px;
+}
+
+.addon-box p{
+    margin:6px 0;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:18px;
+    padding:11px 22px;
+    background:#007bff;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    transition:.25s;
+}
+
+.btn:hover{
+    background:#009cff;
+}
+</style>
+
 </head>
-
 <body>
 
-<h1>Furry Destroyer Clan Boss</h1>
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="left-header">
+
+<img class="logo"
+src="https://www.image2url.com/r2/default/images/1783572101896-a2b234e5-7c48-4093-b777-3a5df5c30cd2.png"
+alt="Logo">
+
+<div class="title-box">
+<h2>K-Nahoraga-FDC</h2>
+<p>© 2026 K-Nahoraga-999 | Unknown Addon</p>
+</div>
+
+</div>
+
+<a class="youtube"
+href="https://youtube.com/@NamaChannel"
+target="_blank">
+
+<img
+src="https://brand.youtube/youtube-icon/"
+alt="YouTube">
+
+</a>
+
+</div>
+
+<h1 class="main-title">
+Furry Destroyer Clan Boss
+</h1>
 
 <div class="addon-box">
-    <img src="https://www.image2url.com/r2/default/images/1783538334963-157fa0ad-4249-4e8a-84ba-71b42766c900.png" alt="Flash Killer">
 
-    <h2>Flash Killer</h2>
+<img class="addon-image"
+src="https://www.image2url.com/r2/default/images/1783538334963-157fa0ad-4249-4e8a-84ba-71b42766c900.png"
+alt="Flash Killer">
 
-    <p>Attack : 3/10</p>
-    <p>Power : 5/10</p>
-    <p>Movement : 8/10</p>
-    <p>Version : 1.26</p>
+<h2>Flash Killer</h2>
 
-    <a class="btn" href="https://www.dropbox.com/scl/fi/3d2wltmyd5wsk6s1o29nz/FDC-Flash-Killer.mcaddon?rlkey=zr8knzubnq55heyj23f495sv4&st=qyespbnm&dl=0">
-        Download :)
-    </a>
+<p>Attack : 3/10</p>
+<p>Power : 5/10</p>
+<p>Movement : 8/10</p>
+<p>Version : 1.26</p>
+
+<a class="btn"
+href="https://www.dropbox.com/scl/fi/3d2wltmyd5wsk6s1o29nz/FDC-Flash-Killer.mcaddon?rlkey=zr8knzubnq55heyj23f495sv4&st=qyespbnm&dl=0">
+Download :)
+</a>
+
 </div>
 
 <div class="addon-box">
-    <img src="https://img.sanishtech.com/u/6dbb1890a03a91aa95edd704036abfce.png" alt="Addon 2">
 
-    <h2>DURIN</h2>
+<img class="addon-image"
+src="https://img.sanishtech.com/u/6dbb1890a03a91aa95edd704036abfce.png"
+alt="Durin">
 
-    <p>Attack : 5/10</p>
-    <p>Power : 8/10</p>
-    <p>Movement : 4/10</p>
-    <p>Version : 1.21.100~1.26</p>
+<h2>DURIN</h2>
 
-    <a class="btn" href="k_nahoraga_999">
-        Soon :!
-    </a>
+<p>Attack : 5/10</p>
+<p>Power : 8/10</p>
+<p>Movement : 4/10</p>
+<p>Version : 1.21.100 ~ 1.26</p>
+
+<a class="btn"
+href="k_nahoraga_999">
+Soon :!
+</a>
+
+</div>
+
+<div class="addon-box">
+
+<img class="addon-image"
+src="https://img.sanishtech.com/u/6dbb1890a03a91aa95edd704036abfce.png"
+alt="Durin">
+
+<h2>DURIN</h2>
+
+<p>Attack : ?/10</p>
+<p>Power : ?/10</p>
+<p>Movement : ?/10</p>
+<p>Version : ?</p>
+
+<a class="btn"
+href="k_nahoraga_999">
+Soon :!
+</a>
+
 </div>
 
 </body>
