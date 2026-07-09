@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FDC Web</title>
+<title>FDC Web - RGB Bergantian</title>
 
 <style>
 *{
@@ -19,7 +19,18 @@ body{
     padding:20px;
 }
 
+/* --- Animasi Pelangi RGB (Durasi total 6 detik) --- */
+@keyframes rgb-chroma {
+    0% { border-color: rgb(255, 0, 0); }
+    17% { border-color: rgb(255, 255, 0); }
+    33% { border-color: rgb(0, 255, 0); }
+    50% { border-color: rgb(0, 255, 255); }
+    67% { border-color: rgb(0, 0, 255); }
+    83% { border-color: rgb(255, 0, 255); }
+    100% { border-color: rgb(255, 0, 0); }
+}
 
+/* --- Struktur Header --- */
 .header{
     max-width:900px;
     margin:auto;
@@ -35,12 +46,15 @@ body{
     gap:12px;
 }
 
+/* 1. Logo Profil Kiri */
 .logo{
     width:55px;
     height:55px;
     border-radius:8px;
     object-fit:cover;
-    border:2px solid #444;
+    border: 3px solid transparent; 
+    animation: rgb-chroma 6s linear infinite;
+    animation-delay: 0s; /* Mulai dari warna merah */
 }
 
 .title-box h2{
@@ -53,38 +67,43 @@ body{
     font-size:13px;
 }
 
+/* 2. Logo YouTube Kanan */
 .youtube img{
     width:45px;
     height:45px;
     border-radius:8px;
     transition:.25s;
+    border: 3px solid transparent; 
+    animation: rgb-chroma 6s linear infinite;
+    animation-delay: -1.2s; /* Jeda warna agar beda dengan logo kiri */
 }
 
 .youtube img:hover{
     transform:scale(1.1);
 }
 
-
 .main-title{
     text-align:center;
     margin-bottom:25px;
 }
 
-
+/* --- Kotak Kartu Addon --- */
 .addon-box{
     max-width:430px;
     margin:25px auto;
     background:#111;
-    border:2px solid #333;
     border-radius:15px;
     padding:25px;
     text-align:center;
     transition:.3s;
+    border: 3px solid transparent; 
+    animation: rgb-chroma 6s linear infinite;
 }
 
+/* Efek interaktif halus saat kursor di atas kotak */
 .addon-box:hover{
-    border-color:#00aaff;
-    box-shadow:0 0 20px rgba(0,170,255,.35);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .addon-box img.addon-image{
@@ -120,97 +139,66 @@ body{
 </head>
 <body>
 
-<!-- HEADER -->
-
 <div class="header">
+    <div class="left-header">
+        <img class="logo"
+             src="https://www.image2url.com/r2/default/images/1783572101896-a2b234e5-7c48-4093-b777-3a5df5c30cd2.png"
+             alt="Logo Foto">
+        
+        <div class="title-box">
+            <h2>K-Nahoraga-FDC</h2>
+            <p>© 2026 K-Nahoraga-999 | Unknown Addon</p>
+        </div>
+    </div>
 
-<div class="left-header">
-
-<img class="logo"
-src="https://www.image2url.com/r2/default/images/1783572101896-a2b234e5-7c48-4093-b777-3a5df5c30cd2.png"
-alt="Logo">
-
-<div class="title-box">
-<h2>K-Nahoraga-FDC</h2>
-<p>© 2026 K-Nahoraga-999 | Unknown Addon</p>
+    <a class="youtube" href="https://www.youtube.com/@FDC-k" target="_blank">
+        <img src="https://www.image2url.com/r2/default/images/1783572963576-b1dce04d-ff43-4e58-893b-b641057e84bf.png"
+             alt="YouTube">
+    </a>
 </div>
 
+<h1 class="main-title">Furry Destroyer Clan Boss</h1>
+
+<div class="addon-box" style="animation-delay: -2.5s;">
+    <img class="addon-image"
+         src="https://www.image2url.com/r2/default/images/1783538334963-157fa0ad-4249-4e8a-84ba-71b42766c900.png"
+         alt="Flash Killer">
+    
+    <h2>Flash Killer</h2>
+    <p>Attack : 3/10</p>
+    <p>Power : 5/10</p>
+    <p>Movement : 8/10</p>
+    <p>Version : 1.26</p>
+    
+    <a class="btn" href="https://www.dropbox.com/scl/fi/3d2wltmyd5wsk6s1o29nz/FDC-Flash-Killer.mcaddon?rlkey=zr8knzubnq55heyj23f495sv4&st=qyespbnm&dl=0">
+        Download :)
+    </a>
 </div>
 
-<a class="youtube"
-href="https://www.youtube.com/@FDC-k"
-target="_blank">
-
-<img
-src="https://www.image2url.com/r2/default/images/1783572963576-b1dce04d-ff43-4e58-893b-b641057e84bf.png"
-alt="YouTube">
-
-</a>
-
+<div class="addon-box" style="animation-delay: -3.5s;">
+    <img class="addon-image"
+         src="https://img.sanishtech.com/u/6dbb1890a03a91aa95edd704036abfce.png"
+         alt="Durin">
+    
+    <h2>D U R I N</h2>
+    <p>Attack : 5/10</p>
+    <p>Power : 8/10</p>
+    <p>Movement : 4/10</p>
+    <p>Version : 1.21.100 ~ 1.26</p>
+    
+    <a class="btn" href="#">Soon :!</a>
 </div>
 
-<h1 class="main-title">
-Furry Destroyer Clan Boss
-</h1>
-
-<div class="addon-box">
-
-<img class="addon-image"
-src="https://www.image2url.com/r2/default/images/1783538334963-157fa0ad-4249-4e8a-84ba-71b42766c900.png"
-alt="Flash Killer">
-
-<h2>Flash Killer</h2>
-
-<p>Attack : 3/10</p>
-<p>Power : 5/10</p>
-<p>Movement : 8/10</p>
-<p>Version : 1.26</p>
-
-<a class="btn"
-href="https://www.dropbox.com/scl/fi/3d2wltmyd5wsk6s1o29nz/FDC-Flash-Killer.mcaddon?rlkey=zr8knzubnq55heyj23f495sv4&st=qyespbnm&dl=0">
-Download :)
-</a>
-
-</div>
-
-<div class="addon-box">
-
-<img class="addon-image"
-src="https://img.sanishtech.com/u/6dbb1890a03a91aa95edd704036abfce.png"
-alt="Durin">
-
-<h2>D U R I N</h2>
-
-<p>Attack : 5/10</p>
-<p>Power : 8/10</p>
-<p>Movement : 4/10</p>
-<p>Version : 1.21.100 ~ 1.26</p>
-
-<a class="btn"
-href="k_nahoraga_999">
-Soon :!
-</a>
-
-</div>
-
-<div class="addon-box">
-
-<img class="addon-image"
-src="null"
-alt="Unknown">
-
-<h2>Unknown</h2>
-
-<p>Attack : ?/10</p>
-<p>Power : ?/10</p>
-<p>Movement : ?/10</p>
-<p>Version : ?</p>
-
-<a class="btn"
-href="k_nahoraga_999">
-Soon :!
-</a>
-
+<div class="addon-box" style="animation-delay: -4.5s;">
+    <img class="addon-image" src="" alt="Unknown Image (Null)">
+    
+    <h2>Unknown</h2>
+    <p>Attack : ?/10</p>
+    <p>Power : ?/10</p>
+    <p>Movement : ?/10</p>
+    <p>Version : ?</p>
+    
+    <a class="btn" href="#">Soon :!</a>
 </div>
 
 </body>
