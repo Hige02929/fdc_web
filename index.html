@@ -1,224 +1,262 @@
-/*Weak*/
-/*average,*/
-/*Strong*/
-/*Mad*/
-/*Void*/
-/*God*/
-/*Null*/
-/*Supernull*/
-/*Hypernull*/
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FDC Web - RGB Bergantian</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:#000;
-    color:#fff;
-    font-family:Arial,sans-serif;
-    padding:20px;
-}
-
-/* --- Animasi Pelangi RGB (Durasi total 6 detik) --- */
-@keyframes rgb-chroma {
-    0% { border-color: rgb(255, 0, 0); }
-    17% { border-color: rgb(255, 255, 0); }
-    33% { border-color: rgb(0, 255, 0); }
-    50% { border-color: rgb(0, 255, 255); }
-    67% { border-color: rgb(0, 0, 255); }
-    83% { border-color: rgb(255, 0, 255); }
-    100% { border-color: rgb(255, 0, 0); }
-}
-
-/* --- Struktur Header --- */
-.header{
-    max-width:900px;
-    margin:auto;
-    margin-bottom:35px;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-}
-
-.left-header{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-/* 1. Logo Profil Kiri */
-.logo{
-    width:55px;
-    height:55px;
-    border-radius:8px;
-    object-fit:cover;
-    border: 3px solid transparent; 
-    animation: rgb-chroma 6s linear infinite;
-    animation-delay: 0s; /* Mulai dari warna merah */
-}
-
-.title-box h2{
-    font-size:24px;
-}
-
-.title-box p{
-    margin-top:5px;
-    color:#bdbdbd;
-    font-size:13px;
-}
-
-/* 2. Logo YouTube Kanan */
-.youtube img{
-    width:45px;
-    height:45px;
-    border-radius:8px;
-    transition:.25s;
-    border: 3px solid transparent; 
-    animation: rgb-chroma 6s linear infinite;
-    animation-delay: -1.2s; /* Jeda warna agar beda dengan logo kiri */
-}
-
-.youtube img:hover{
-    transform:scale(1.1);
-}
-
-.main-title{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-/* --- Kotak Kartu Addon --- */
-.addon-box{
-    max-width:430px;
-    margin:25px auto;
-    background:#111;
-    border-radius:15px;
-    padding:25px;
-    text-align:center;
-    transition:.3s;
-    border: 3px solid transparent; 
-    animation: rgb-chroma 6s linear infinite;
-}
-
-/* Efek interaktif halus saat kursor di atas kotak */
-.addon-box:hover{
-    transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-}
-
-.addon-box img.addon-image{
-    width:180px;
-    border-radius:12px;
-    margin-bottom:15px;
-}
-
-.addon-box h2{
-    margin-bottom:12px;
-}
-
-.addon-box p{
-    margin:6px 0;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:18px;
-    padding:11px 22px;
-    background:#007bff;
-    color:#fff;
-    text-decoration:none;
-    border-radius:8px;
-    transition:.25s;
-}
-
-.btn:hover{
-    background:#009cff;
-}
-</style>
-
-</head>
-<body>
-
-<div class="header">
-    <div class="left-header">
-        <img class="logo"
-             src="https://www.image2url.com/r2/default/images/1783572101896-a2b234e5-7c48-4093-b777-3a5df5c30cd2.png"
-             alt="Logo Foto">
-        
-        <div class="title-box">
-            <h2>K-Nahoraga-FDC</h2>
-            <p>© 2026 K-Nahoraga-999 | Unknown Addon</p>
-        </div>
-    </div>
-
-    <a class="youtube" href="https://www.youtube.com/@FDC-k" target="_blank">
-        <img src="https://www.image2url.com/r2/default/images/1783572963576-b1dce04d-ff43-4e58-893b-b641057e84bf.png"
-             alt="YouTube">
-    </a>
-</div>
-
-<h1 class="main-title">Furry Destroyer Class Boss</h1>
-
-<div class="addon-box" style="animation-delay: -2.5s;">
-    <img class="addon-image"
-         src="https://www.image2url.com/r2/default/images/1783538334963-157fa0ad-4249-4e8a-84ba-71b42766c900.png"
-         alt="Flash Killer">
-    
-    <h2>Flash Killer</h2>
-    <p>Attack : Weak~Mad</p>
-    <p>Power : Strong~Void</p>
-    <p>Defense : Weak~Mad</p>
-    <p>Life : Badass/Killable</p>
-    <p>Version : 1.26+</p>
-    
-    <a class="btn" href="https://www.dropbox.com/scl/fi/3d2wltmyd5wsk6s1o29nz/FDC-Flash-Killer.mcaddon?rlkey=zr8knzubnq55heyj23f495sv4&st=qyespbnm&dl=0">
-        Download :)
-    </a>
-</div>
-
-<div class="addon-box" style="animation-delay: -3.5s;">
-    <img class="addon-image"
-         src="https://img.sanishtech.com/u/6dbb1890a03a91aa95edd704036abfce.png"
-         alt="Durin">
-    
-    <h2>D U R I N</h2>
-    <p>Attack : Weak~God</p>
-    <p>Power : Mad~Void</p>
-    <p>Defense : Strong~God</p>
-    <p>Life : Badass/Killable</p>
-    <p>Version : 1.21.100~1.26</p>
-    
-    <a class="btn" href="#">
-        Soon :!
-    </a>
-</div>
-
-<div class="addon-box" style="animation-delay: -4.5s;">
-    <img class="addon-image" 
-         src="https://www.image2url.com/r2/default/images/1783575356370-c1a22139-f002-4233-96e6-fe2e33893c31.png"
-         alt="999">
-    
-    <h2>Unknown</h2>
-    <p>Attack : ?</p>
-    <p>Power : ?</p>
-    <p>Defense : ?</p>
-    <p>Life : ?</p>
-    <p>Version : ?</p>
-    
-    <a class="btn" href="#">
-        Soon :!
-    </a>
-</div>
-
-</body>
+<!DOCTYPE html>              
+<html lang="id">              
+<head>              
+<meta charset="UTF-8">              
+<meta name="viewport" content="width=device-width, initial-scale=1.0">              
+<title>FDC Web - RGB Bergantian</title>              
+<style>              
+*{              
+    margin:0;              
+    padding:0;              
+    box-sizing:border-box;              
+}              
+              
+body{              
+    background:#000;              
+    color:#fff;              
+    font-family:Arial,sans-serif;              
+    padding:20px;              
+}              
+              
+/* --- Animasi Pelangi RGB (Durasi total 6 detik) --- */              
+@keyframes rgb-chroma {              
+    0% { border-color: rgb(255, 0, 0); }              
+    17% { border-color: rgb(255, 255, 0); }              
+    33% { border-color: rgb(0, 255, 0); }              
+    50% { border-color: rgb(0, 255, 255); }              
+    67% { border-color: rgb(0, 0, 255); }              
+    83% { border-color: rgb(255, 0, 255); }              
+    100% { border-color: rgb(255, 0, 0); }              
+}              
+              
+/* --- Animasi Warna Teks Tingkatan --- */              
+@keyframes tier-color {              
+    0%, 100% { color: #ffa500; }  /* Oren */              
+    16.66% { color: #ffffff; }   /* Putih */              
+    33.33% { color: #ff0000; }   /* Merah */              
+    50% { color: #8a2be2; }      /* Ungu */              
+    66.66% { color: #0000ff; }   /* Biru */              
+    83.33% { color: #00ff00; }   /* Hijau */              
+}              
+              
+/* --- Struktur Header --- */              
+.header{              
+    max-width:900px;              
+    margin:auto;              
+    margin-bottom:35px;              
+    display:flex;              
+    justify-content:space-between;              
+    align-items:flex-start;              
+}              
+              
+.left-header{              
+    display:flex;              
+    align-items:flex-start;              
+    gap:12px;              
+}              
+              
+/* Container khusus untuk Logo dan Teks di bawahnya */              
+.logo-container {              
+    display: flex;              
+    flex-direction: column;              
+    align-items: center;              
+    gap: 10px;              
+}              
+              
+/* 1. Logo Profil Kiri */              
+.logo{              
+    width:55px;              
+    height:55px;              
+    border-radius:8px;              
+    object-fit:cover;              
+    border: 3px solid transparent;               
+    animation: rgb-chroma 6s linear infinite;              
+    animation-delay: 0s;              
+}              
+              
+/* Gaya Teks Tingkatan (Sudah diperbesar 50%) */              
+.tier-list {              
+    display: flex;              
+    flex-direction: column;              
+    align-items: center;              
+    font-size: 16px; /* Ukuran naik 50% dari sebelumnya */              
+    font-weight: bold;              
+    line-height: 1.5;              
+    text-align: center;              
+}              
+              
+.tier-list span {              
+    animation: tier-color 4s linear infinite;              
+}              
+              
+/* Delay animasi agar warna berjalan dari atas/bawah lalu menuju ke tengah */              
+.tier-list span:nth-child(1) { animation-delay: 0s; }              
+.tier-list span:nth-child(2) { animation-delay: -0.3s; }              
+.tier-list span:nth-child(3) { animation-delay: -0.6s; }              
+.tier-list span:nth-child(4) { animation-delay: -0.9s; }              
+.tier-list span:nth-child(5) { animation-delay: -1.2s; } /* Titik Tengah (Void) */              
+.tier-list span:nth-child(6) { animation-delay: -0.9s; }              
+.tier-list span:nth-child(7) { animation-delay: -0.6s; }              
+.tier-list span:nth-child(8) { animation-delay: -0.3s; }              
+.tier-list span:nth-child(9) { animation-delay: 0s; }              
+              
+.title-box h2{              
+    font-size:24px;              
+}              
+              
+.title-box p{              
+    margin-top:5px;              
+    color:#bdbdbd;              
+    font-size:13px;              
+}              
+              
+/* 2. Logo YouTube Kanan */              
+.youtube img{              
+    width:45px;              
+    height:45px;              
+    border-radius:8px;              
+    transition:.25s;              
+    border: 3px solid transparent;               
+    animation: rgb-chroma 6s linear infinite;              
+    animation-delay: -1.2s;              
+}              
+              
+.youtube img:hover{              
+    transform:scale(1.1);              
+}              
+              
+.main-title{              
+    text-align:center;              
+    margin-bottom:25px;              
+}              
+              
+/* --- Kotak Kartu Addon --- */              
+.addon-box{              
+    max-width:430px;              
+    margin:25px auto;              
+    background:#111;              
+    border-radius:15px;              
+    padding:25px;              
+    text-align:center;              
+    transition:.3s;              
+    border: 3px solid transparent;               
+    animation: rgb-chroma 6s linear infinite;              
+}              
+              
+.addon-box:hover{              
+    transform: scale(1.02);              
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);              
+}              
+              
+.addon-box img.addon-image{              
+    width:180px;              
+    border-radius:12px;              
+    margin-bottom:15px;              
+}              
+              
+.addon-box h2{              
+    margin-bottom:12px;              
+}              
+              
+.addon-box p{              
+    margin:6px 0;              
+}              
+              
+.btn{              
+    display:inline-block;              
+    margin-top:18px;              
+    padding:11px 22px;              
+    background:#007bff;              
+    color:#fff;              
+    text-decoration:none;              
+    border-radius:8px;              
+    transition:.25s;              
+}              
+              
+.btn:hover{              
+    background:#009cff;              
+}              
+</style>              
+</head>              
+<body>              
+              
+<div class="header">              
+    <div class="left-header">              
+        <div class="logo-container">              
+            <img class="logo"              
+                 src="https://www.image2url.com/r2/default/images/1783572101896-a2b234e5-7c48-4093-b777-3a5df5c30cd2.png"              
+                 alt="Logo Foto">              
+            <div class="tier-list">              
+                <span>Weak</span>              
+                <span>average</span>              
+                <span>Strong</span>              
+                <span>Mad</span>              
+                <span>Void</span>              
+                <span>God</span>              
+                <span>Null</span>              
+                <span>Supernull</span>              
+                <span>Hypernull</span>              
+            </div>              
+        </div>              
+        <div class="title-box">              
+            <h2>K-Nahoraga-FDC</h2>              
+            <p>© 2026 K-Nahoraga-999 | Unknown Addon</p>              
+        </div>              
+    </div>              
+          
+    <a class="youtube" href="https://www.youtube.com/@FDC-k" target="_blank">              
+        <img src="https://www.image2url.com/r2/default/images/1783572963576-b1dce04d-ff43-4e58-893b-b641057e84bf.png"              
+             alt="YouTube">              
+    </a>              
+</div>              
+              
+<h1 class="main-title">Furry Destroyer Class Boss</h1>              
+              
+<div class="addon-box" style="animation-delay: -2.5s;">              
+    <img class="addon-image"              
+         src="https://www.image2url.com/r2/default/images/1783538334963-157fa0ad-4249-4e8a-84ba-71b42766c900.png"              
+         alt="Flash Killer">              
+    <h2>Flash Killer</h2>              
+    <p>Attack : Weak~Mad</p>              
+    <p>Power : Strong~Void</p>              
+    <p>Defense : Weak~Mad</p>              
+    <p>Life : Badass/Killable</p>              
+    <p>Version : 1.26+</p>              
+    <a class="btn" href="https://www.dropbox.com/scl/fi/3d2wltmyd5wsk6s1o29nz/FDC-Flash-Killer.mcaddon?rlkey=zr8knzubnq55heyj23f495sv4&st=qyespbnm&dl=0">              
+        Download :)              
+    </a>              
+</div>              
+              
+<div class="addon-box" style="animation-delay: -3.5s;">              
+    <img class="addon-image"              
+         src="https://img.sanishtech.com/u/6dbb1890a03a91aa95edd704036abfce.png"              
+         alt="Durin">              
+    <h2>D U R I N</h2>              
+    <p>Attack : Weak~God</p>              
+    <p>Power : Mad~Void</p>              
+    <p>Defense : Strong~God</p>              
+    <p>Life : Badass/Killable</p>              
+    <p>Version : 1.21.100~1.26</p>              
+    <a class="btn" href="#">              
+        Soon :!              
+    </a>              
+</div>              
+              
+<div class="addon-box" style="animation-delay: -4.5s;">              
+    <img class="addon-image"               
+         src="https://www.image2url.com/r2/default/images/1783575356370-c1a22139-f002-4233-96e6-fe2e33893c31.png"              
+         alt="999">              
+    <h2>Unknown</h2>              
+    <p>Attack : ?</p>              
+    <p>Power : ?</p>              
+    <p>Defense : ?</p>              
+    <p>Life : ?</p>              
+    <p>Version : ?</p>              
+    <a class="btn" href="#">              
+        Soon :!              
+    </a>              
+</div>              
+              
+</body>              
 </html>
+
