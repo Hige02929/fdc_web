@@ -190,14 +190,14 @@ body{
     left: 0;              
     width: 100%;              
     height: 100%;              
-    background: #000000; /* Hitam pekat murni[span_1](start_span)[span_1](end_span) */              
+    background: #000000; /* Hitam pekat murni[span_3](start_span)[span_3](end_span) */              
     opacity: 1;              
     display: flex;              
     justify-content: center;              
     align-items: center;              
     z-index: 99999;              
-    transition: background-color 0.1s ease, opacity 0.5s ease, visibility 0.5s ease; /* Transisi warna latar belakang cepat[span_2](start_span)[span_2](end_span) */              
-    cursor: pointer;              
+    transition: background-color 0.1s ease, opacity 0.5s ease, visibility 0.5s ease;              
+    cursor: default; /* Standar, karena luar kotak tidak bisa diklik */              
 }              
 .music-overlay.hidden {              
     opacity: 0;              
@@ -213,7 +213,8 @@ body{
     animation: rgb-chroma 6s linear infinite;              
     max-width: 90%;              
     width: 340px;              
-    transition: opacity 0.1s ease; /* Transisi instan untuk menyembunyikan kotak */              
+    transition: opacity 0.1s ease;              
+    cursor: pointer; /* Hanya kotak ini yang memicu pointer klik */              
 }              
 .overlay-logo {              
     width: 80px;              
@@ -244,16 +245,16 @@ body{
 </head>              
 <body>              
 
-<!-- Overlay Interaksi Pengguna (Hitam Pekat Murni)[span_3](start_span)[span_3](end_span) -->
+<!-- Overlay Interaksi Pengguna (Hitam Pekat Murni)[span_4](start_span)[span_4](end_span) -->
 <div id="music-overlay" class="music-overlay">
-    <div class="overlay-box">
+    <div id="overlay-box" class="overlay-box">
         <img src="https://www.image2url.com/r2/default/images/1783572101896-a2b234e5-7c48-4093-b777-3a5df5c30cd2.png" alt="Logo FDC" class="overlay-logo">
         <h2>K-Nahoraga-FDC</h2>
         <p>Enter & Choose</p>
     </div>
 </div>
 
-<!-- Elemen Utama Audio dengan Loop Aktif[span_4](start_span)[span_4](end_span) -->
+<!-- Elemen Utama Audio dengan Loop Aktif[span_5](start_span)[span_5](end_span) -->
 <audio id="bg-music" loop preload="auto">
     <source src="https://genetic-green-ds1woxah.edgeone.dev/I%20am%20just%20their%20creator.mp3" type="audio/mpeg">
     Browser Anda tidak mendukung elemen audio.
@@ -280,7 +281,7 @@ body{
               
 <h1 class="main-title">Furry Destroyer Class Boss</h1>              
 
-<!-- Teks Tingkatan Berada di Tengah Layout Sejajar dengan Addon Box[span_5](start_span)[span_5](end_span) -->
+<!-- Teks Tingkatan Berada di Tengah Layout Sejajar dengan Addon Box[span_6](start_span)[span_6](end_span) -->
 <div class="tier-list">              
     <span>Weak</span>              
     <span>average</span>              
@@ -342,41 +343,63 @@ body{
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bg-music');
     const overlay = document.getElementById('music-overlay');
-    const overlayBox = overlay.querySelector('.overlay-box');
+    const overlayBox = document.getElementById('overlay-box');
     let hasClicked = false;
 
-    // Menangani jalannya efek kilatan merah dan transisi halaman
-    function triggerRedFlashAndEnter() {
+    // Fungsi pemutar audio murni (menggunakan preloaded data agar instan & tidak macet)
+    function playAudioInstantly() {
+        audio.muted = false;       // Memastikan suara aktif
+        audio.currentTime = 0;     // Selalu reset durasi lagu kembali ke awal 
+
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(err => {
+                console.error("Browser memblokir pemutaran, mencoba ulang...", err);
+                // Metode alternatif jika terjadi kendala siklus state pada browser tertentu
+                setTimeout(() => { audio.play().catch(e => console.log(e)); }, 30);
+            });
+        }
+    }
+
+    // Menangani jalannya efek kilatan merah dan masuk ke halaman utama[span_7](start_span)[span_7](end_span)
+    function triggerRedFlashAndEnter(e) {
+        // Hentikan penanganan ganda sentuhan pada layar ponsel pintar
+        if (e.type === 'touchstart') {
+            e.preventDefault();
+        }
+
         if (hasClicked) return;
         hasClicked = true;
 
-        // Putar audio latar belakang[span_6](start_span)[span_6](end_span)
-        audio.play().catch(err => console.error("Gagal memulai musik:", err));
+        // Jalankan audio secara instan sewaktu klik terdeteksi
+        playAudioInstantly();
 
-        // HILANGKAN KOTAK KONTEN (Logo & Teks Enter & Choose) SEKETIKA
+        // SEMBUNYIKAN KOTAK ELEMEN UTAMA SEKETIKA (Logo & Tulisan Enter & Choose)[span_8](start_span)[span_8](end_span)
         if (overlayBox) {
             overlayBox.style.display = 'none';
         }
 
-        // Buat layar berubah menjadi merah pekat seketika[span_7](start_span)[span_7](end_span)
+        // Ubah latar belakang menjadi merah menyala polos seketika[span_9](start_span)[span_9](end_span)
         overlay.style.backgroundColor = '#ff0000';
 
-        // Tahan warna merah selama 0.5 detik (500 milidetik) sebelum menghilang[span_8](start_span)[span_8](end_span)
+        // Berikan delay 0.5 detik dalam kondisi layar merah polos sebelum masuk utama[span_10](start_span)[span_10](end_span)
         setTimeout(() => {
             overlay.classList.add('hidden');
         }, 500);
     }
 
-    // Event saat pengguna mengetuk/klik area overlay hitam[span_9](start_span)[span_9](end_span)
-    overlay.addEventListener('click', triggerRedFlashAndEnter);
+    // SEKARANG LISTENERS HANYA DITARGETKAN KE KOTAKNYA SAJA (Bukan seluruh overlay layar luar)[span_11](start_span)[span_11](end_span)
+    overlayBox.addEventListener('click', triggerRedFlashAndEnter);
+    overlayBox.addEventListener('touchstart', triggerRedFlashAndEnter, { passive: false });
 
-    // Garansi reset dan jalankan berulang kali (Loop aman di iOS Safari)[span_10](start_span)[span_10](end_span)
+    // Memastikan loop musik berjalan lancar tanpa terputus di tengah jalan[span_12](start_span)[span_12](end_span)
     audio.addEventListener('ended', () => {
         audio.currentTime = 0;
-        audio.play().catch(err => console.log("Gagal memutar loop:", err));
+        audio.play().catch(err => console.log("Gagal memutar ulang loop musik:", err));
     });
 });
 </script>
               
 </body>              
 </html>
+
