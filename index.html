@@ -55,7 +55,7 @@ body{
     gap:12px;              
 }              
               
-/* Container khusus untuk Logo dan Teks di bawahnya */              
+/* Container khusus untuk Logo */              
 .logo-container {              
     display: flex;              
     flex-direction: column;              
@@ -74,7 +74,7 @@ body{
     animation-delay: 0s;              
 }              
               
-/* Gaya Teks Tingkatan (Rata Tengah Sempurna) */              
+/* Gaya Teks Tingkatan (Diposisikan di Tengah Halaman Sejajar Addon Box) */              
 .tier-list {              
     display: flex;              
     flex-direction: column;              
@@ -84,6 +84,8 @@ body{
     font-weight: bold;              
     line-height: 1.5;              
     text-align: center;              
+    max-width: 430px;              
+    margin: 0 auto 25px auto;              
     width: 100%;              
 }              
               
@@ -180,15 +182,79 @@ body{
 .btn:hover{              
     background:#009cff;              
 }              
+
+/* --- CSS OVERLAY BYPASS AUTOPLAY (Hitam Pekat & Transisi Merah) --- */              
+.music-overlay {              
+    position: fixed;              
+    top: 0;              
+    left: 0;              
+    width: 100%;              
+    height: 100%;              
+    background: #000000; /* Hitam pekat murni[span_1](start_span)[span_1](end_span) */              
+    opacity: 1;              
+    display: flex;              
+    justify-content: center;              
+    align-items: center;              
+    z-index: 99999;              
+    transition: background-color 0.1s ease, opacity 0.5s ease, visibility 0.5s ease; /* Transisi warna latar belakang cepat[span_2](start_span)[span_2](end_span) */              
+    cursor: pointer;              
+}              
+.music-overlay.hidden {              
+    opacity: 0;              
+    visibility: hidden;              
+    pointer-events: none;              
+}              
+.overlay-box {              
+    background: #111;              
+    padding: 35px 25px;              
+    border-radius: 15px;              
+    text-align: center;              
+    border: 3px solid transparent;              
+    animation: rgb-chroma 6s linear infinite;              
+    max-width: 90%;              
+    width: 340px;              
+    transition: opacity 0.1s ease; /* Transisi instan untuk menyembunyikan kotak */              
+}              
+.overlay-logo {              
+    width: 80px;              
+    height: 80px;              
+    border-radius: 12px;              
+    margin-bottom: 15px;              
+    border: 3px solid transparent;              
+    animation: rgb-chroma 6s linear infinite;              
+    object-fit: cover;              
+}              
+.overlay-box h2 {              
+    font-size: 20px;              
+    margin-bottom: 12px;              
+    color: #fff;              
+}              
+.overlay-box p {              
+    font-size: 13px;              
+    color: #007bff;              
+    font-weight: bold;              
+    letter-spacing: 1px;              
+    animation: pulse-glow 1.5s infinite alternate;              
+}              
+@keyframes pulse-glow {              
+    0% { opacity: 0.5; text-shadow: 0 0 5px rgba(0, 123, 255, 0.2); }              
+    100% { opacity: 1; text-shadow: 0 0 15px rgba(0, 123, 255, 0.8); }              
+}              
 </style>              
 </head>              
 <body>              
 
-<!-- Trik Iframe Tersembunyi untuk memaksa Autoplay di latar belakang -->
-<iframe src="https://genetic-green-ds1woxah.edgeone.dev/I%20am%20just%20their%20creator.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
+<!-- Overlay Interaksi Pengguna (Hitam Pekat Murni)[span_3](start_span)[span_3](end_span) -->
+<div id="music-overlay" class="music-overlay">
+    <div class="overlay-box">
+        <img src="https://www.image2url.com/r2/default/images/1783572101896-a2b234e5-7c48-4093-b777-3a5df5c30cd2.png" alt="Logo FDC" class="overlay-logo">
+        <h2>K-Nahoraga-FDC</h2>
+        <p>Enter & Choose</p>
+    </div>
+</div>
 
-<!-- Elemen Utama Audio dengan Autoplay & Loop -->
-<audio id="bg-music" autoplay loop>
+<!-- Elemen Utama Audio dengan Loop Aktif[span_4](start_span)[span_4](end_span) -->
+<audio id="bg-music" loop preload="auto">
     <source src="https://genetic-green-ds1woxah.edgeone.dev/I%20am%20just%20their%20creator.mp3" type="audio/mpeg">
     Browser Anda tidak mendukung elemen audio.
 </audio>
@@ -199,17 +265,6 @@ body{
             <img class="logo"              
                  src="https://www.image2url.com/r2/default/images/1783572101896-a2b234e5-7c48-4093-b777-3a5df5c30cd2.png"              
                  alt="Logo Foto">              
-            <div class="tier-list">              
-                <span>Weak</span>              
-                <span>average</span>              
-                <span>Strong</span>              
-                <span>Mad</span>              
-                <span>Void</span>              
-                <span>God</span>              
-                <span>Null</span>              
-                <span>Supernull</span>              
-                <span>Hypernull</span>              
-            </div>              
         </div>              
         <div class="title-box">              
             <h2>K-Nahoraga-FDC</h2>              
@@ -224,6 +279,19 @@ body{
 </div>              
               
 <h1 class="main-title">Furry Destroyer Class Boss</h1>              
+
+<!-- Teks Tingkatan Berada di Tengah Layout Sejajar dengan Addon Box[span_5](start_span)[span_5](end_span) -->
+<div class="tier-list">              
+    <span>Weak</span>              
+    <span>average</span>              
+    <span>Strong</span>              
+    <span>Mad</span>              
+    <span>Void</span>              
+    <span>God</span>              
+    <span>Null</span>              
+    <span>Supernull</span>              
+    <span>Hypernull</span>              
+</div>
               
 <div class="addon-box" style="animation-delay: -2.5s;">              
     <img class="addon-image"              
@@ -271,22 +339,41 @@ body{
 </div>              
 
 <script>
-// Menjalankan perintah play secara paksa begitu dokumen selesai dimuat
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bg-music');
-    audio.play().catch(err => {
-        console.log("Autoplay murni diblokir keamanan browser. Menunggu interaksi mikro...");
-        
-        // Cadangan pasif: langsung menyala jika pengguna melakukan aktivitas gerakan sekecil apa pun
-        const forcePlay = () => {
-            audio.play();
-            window.removeEventListener('mousemove', forcePlay);
-            window.removeEventListener('touchstart', forcePlay);
-            window.removeEventListener('scroll', forcePlay);
-        };
-        window.addEventListener('mousemove', forcePlay);
-        window.addEventListener('touchstart', forcePlay);
-        window.addEventListener('scroll', forcePlay);
+    const overlay = document.getElementById('music-overlay');
+    const overlayBox = overlay.querySelector('.overlay-box');
+    let hasClicked = false;
+
+    // Menangani jalannya efek kilatan merah dan transisi halaman
+    function triggerRedFlashAndEnter() {
+        if (hasClicked) return;
+        hasClicked = true;
+
+        // Putar audio latar belakang[span_6](start_span)[span_6](end_span)
+        audio.play().catch(err => console.error("Gagal memulai musik:", err));
+
+        // HILANGKAN KOTAK KONTEN (Logo & Teks Enter & Choose) SEKETIKA
+        if (overlayBox) {
+            overlayBox.style.display = 'none';
+        }
+
+        // Buat layar berubah menjadi merah pekat seketika[span_7](start_span)[span_7](end_span)
+        overlay.style.backgroundColor = '#ff0000';
+
+        // Tahan warna merah selama 0.5 detik (500 milidetik) sebelum menghilang[span_8](start_span)[span_8](end_span)
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+        }, 500);
+    }
+
+    // Event saat pengguna mengetuk/klik area overlay hitam[span_9](start_span)[span_9](end_span)
+    overlay.addEventListener('click', triggerRedFlashAndEnter);
+
+    // Garansi reset dan jalankan berulang kali (Loop aman di iOS Safari)[span_10](start_span)[span_10](end_span)
+    audio.addEventListener('ended', () => {
+        audio.currentTime = 0;
+        audio.play().catch(err => console.log("Gagal memutar loop:", err));
     });
 });
 </script>
