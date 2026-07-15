@@ -74,7 +74,7 @@ body{
     animation-delay: 0s;              
 }              
               
-/* Gaya Teks Tingkatan (Sudah dipastikan rata tengah sempurna) */              
+/* Gaya Teks Tingkatan (Rata Tengah Sempurna) */              
 .tier-list {              
     display: flex;              
     flex-direction: column;              
@@ -184,6 +184,10 @@ body{
 </head>              
 <body>              
 
+<!-- Trik Iframe Tersembunyi untuk memaksa Autoplay di latar belakang -->
+<iframe src="https://genetic-green-ds1woxah.edgeone.dev/I%20am%20just%20their%20creator.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
+
+<!-- Elemen Utama Audio dengan Autoplay & Loop -->
 <audio id="bg-music" autoplay loop>
     <source src="https://genetic-green-ds1woxah.edgeone.dev/I%20am%20just%20their%20creator.mp3" type="audio/mpeg">
     Browser Anda tidak mendukung elemen audio.
@@ -267,15 +271,25 @@ body{
 </div>              
 
 <script>
-// Solusi kendala Autoplay pada Browser Modern
-document.addEventListener('click', function() {
-    var audio = document.getElementById('bg-music');
-    if (audio.paused) {
-        audio.play();
-    }
-}, { once: true });
+// Menjalankan perintah play secara paksa begitu dokumen selesai dimuat
+window.addEventListener('load', () => {
+    const audio = document.getElementById('bg-music');
+    audio.play().catch(err => {
+        console.log("Autoplay murni diblokir keamanan browser. Menunggu interaksi mikro...");
+        
+        // Cadangan pasif: langsung menyala jika pengguna melakukan aktivitas gerakan sekecil apa pun
+        const forcePlay = () => {
+            audio.play();
+            window.removeEventListener('mousemove', forcePlay);
+            window.removeEventListener('touchstart', forcePlay);
+            window.removeEventListener('scroll', forcePlay);
+        };
+        window.addEventListener('mousemove', forcePlay);
+        window.addEventListener('touchstart', forcePlay);
+        window.addEventListener('scroll', forcePlay);
+    });
+});
 </script>
               
 </body>              
-    </html>
-    
+</html>
