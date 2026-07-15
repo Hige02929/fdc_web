@@ -46,12 +46,12 @@ body{
     margin-bottom:35px;              
     display:flex;              
     justify-content:space-between;              
-    align-items:flex-start;              
+    align-items:center;              
 }              
               
 .left-header{              
     display:flex;              
-    align-items:flex-start;              
+    align-items:center; /* Mengubah ke center agar sejajar di tengah */              
     gap:12px;              
 }              
               
@@ -60,6 +60,7 @@ body{
     display: flex;              
     flex-direction: column;              
     align-items: center;              
+    text-align: center;              
     gap: 10px;              
 }              
               
@@ -74,18 +75,20 @@ body{
     animation-delay: 0s;              
 }              
               
-/* Gaya Teks Tingkatan (Sudah diperbesar 50%) */              
+/* Gaya Teks Tingkatan */              
 .tier-list {              
     display: flex;              
     flex-direction: column;              
     align-items: center;              
-    font-size: 16px; /* Ukuran naik 50% dari sebelumnya */              
+    font-size: 16px;              
     font-weight: bold;              
     line-height: 1.5;              
     text-align: center;              
 }              
               
 .tier-list span {              
+    display: block;              
+    text-align: center;              
     animation: tier-color 4s linear infinite;              
 }              
               
@@ -179,6 +182,9 @@ body{
 </style>              
 </head>              
 <body>              
+
+<!-- Elemen Audio untuk Background Music (Autoplay & Berputar Terus) -->
+<audio src="https://jumpshare.com/share/oN50gTZAImb28dpV42qw" autoplay loop></audio>              
               
 <div class="header">              
     <div class="left-header">              
@@ -259,4 +265,3 @@ body{
               
 </body>              
 </html>
-
