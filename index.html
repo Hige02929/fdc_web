@@ -46,12 +46,12 @@ body{
     margin-bottom:35px;              
     display:flex;              
     justify-content:space-between;              
-    align-items:center;              
+    align-items:flex-start;              
 }              
               
 .left-header{              
     display:flex;              
-    align-items:center; /* Mengubah ke center agar sejajar di tengah */              
+    align-items:flex-start;              
     gap:12px;              
 }              
               
@@ -60,7 +60,6 @@ body{
     display: flex;              
     flex-direction: column;              
     align-items: center;              
-    text-align: center;              
     gap: 10px;              
 }              
               
@@ -75,21 +74,23 @@ body{
     animation-delay: 0s;              
 }              
               
-/* Gaya Teks Tingkatan */              
+/* Gaya Teks Tingkatan (Sudah dipastikan rata tengah sempurna) */              
 .tier-list {              
     display: flex;              
     flex-direction: column;              
     align-items: center;              
+    justify-content: center;              
     font-size: 16px;              
     font-weight: bold;              
     line-height: 1.5;              
     text-align: center;              
+    width: 100%;              
 }              
               
 .tier-list span {              
-    display: block;              
-    text-align: center;              
     animation: tier-color 4s linear infinite;              
+    display: block;              
+    width: 100%;              
 }              
               
 /* Delay animasi agar warna berjalan dari atas/bawah lalu menuju ke tengah */              
@@ -183,8 +184,10 @@ body{
 </head>              
 <body>              
 
-<!-- Elemen Audio untuk Background Music (Autoplay & Berputar Terus) -->
-<audio src="https://jumpshare.com/share/oN50gTZAImb28dpV42qw" autoplay loop></audio>              
+<audio id="bg-music" autoplay loop>
+    <source src="https://jumpshare.com/share/oN50gTZAImb28dpV42qw" type="audio/mpeg">
+    Browser Anda tidak mendukung elemen audio.
+</audio>
               
 <div class="header">              
     <div class="left-header">              
@@ -262,6 +265,16 @@ body{
         Soon :!              
     </a>              
 </div>              
+
+<script>
+// Solusi kendala Autoplay pada Browser Modern
+document.addEventListener('click', function() {
+    var audio = document.getElementById('bg-music');
+    if (audio.paused) {
+        audio.play();
+    }
+}, { once: true });
+</script>
               
 </body>              
 </html>
