@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>              
 <html lang="id">              
 <head>              
 <meta charset="UTF-8">              
 <meta name="viewport" content="width=device-width, initial-scale=1.0">              
-<title>FDC Web - RGB Bergantian</title>              
+<title>FDC Web - Tuempek</title>              
 <style>              
 *{              
     margin:0;              
@@ -27,16 +28,6 @@ body{
     67% { border-color: rgb(0, 0, 255); }              
     83% { border-color: rgb(255, 0, 255); }              
     100% { border-color: rgb(255, 0, 0); }              
-}              
-              
-/* --- Animasi Warna Teks Tingkatan --- */              
-@keyframes tier-color {              
-    0%, 100% { color: #ffa500; }  /* Oren */              
-    16.66% { color: #ffffff; }   /* Putih */              
-    33.33% { color: #ff0000; }   /* Merah */              
-    50% { color: #8a2be2; }      /* Ungu */              
-    66.66% { color: #0000ff; }   /* Biru */              
-    83.33% { color: #00ff00; }   /* Hijau */              
 }              
               
 /* --- Struktur Header --- */              
@@ -74,38 +65,6 @@ body{
     animation-delay: 0s;              
 }              
               
-/* Gaya Teks Tingkatan (Diposisikan di Tengah Halaman Sejajar Addon Box) */              
-.tier-list {              
-    display: flex;              
-    flex-direction: column;              
-    align-items: center;              
-    justify-content: center;              
-    font-size: 16px;              
-    font-weight: bold;              
-    line-height: 1.5;              
-    text-align: center;              
-    max-width: 430px;              
-    margin: 0 auto 25px auto;              
-    width: 100%;              
-}              
-              
-.tier-list span {              
-    animation: tier-color 4s linear infinite;              
-    display: block;              
-    width: 100%;              
-}              
-              
-/* Delay animasi agar warna berjalan dari atas/bawah lalu menuju ke tengah */              
-.tier-list span:nth-child(1) { animation-delay: 0s; }              
-.tier-list span:nth-child(2) { animation-delay: -0.3s; }              
-.tier-list span:nth-child(3) { animation-delay: -0.6s; }              
-.tier-list span:nth-child(4) { animation-delay: -0.9s; }              
-.tier-list span:nth-child(5) { animation-delay: -1.2s; } /* Titik Tengah (Void) */              
-.tier-list span:nth-child(6) { animation-delay: -0.9s; }              
-.tier-list span:nth-child(7) { animation-delay: -0.6s; }              
-.tier-list span:nth-child(8) { animation-delay: -0.3s; }              
-.tier-list span:nth-child(9) { animation-delay: 0s; }              
-              
 .title-box h2{              
     font-size:24px;              
 }              
@@ -133,12 +92,12 @@ body{
               
 .main-title{              
     text-align:center;              
-    margin-bottom:25px;              
+    margin-bottom:35px;              
 }              
               
 /* --- Kotak Kartu Addon --- */              
 .addon-box{              
-    max-width:430px;              
+    max-width:500px;              
     margin:25px auto;              
     background:#111;              
     border-radius:15px;              
@@ -161,11 +120,67 @@ body{
 }              
               
 .addon-box h2{              
-    margin-bottom:12px;              
+    margin-bottom:5px;              
+}              
+
+/* --- Gaya Teks Class Ungu Gradasi Putih --- */
+.class-badge {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    display: inline-block;
+    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(to right, #a855f7 0%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+}
+
+/* --- Animasi Glitch Distorsi Warna Visual --- */
+@keyframes glitch-flicker {
+    0% { text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff; opacity: 0.9; }
+    50% { text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; opacity: 1; }
+    100% { text-shadow: 1px 1px #ffffff, -1px -1px #a855f7; opacity: 0.8; }
+}
+
+.glitching-active {
+    animation: glitch-flicker 0.05s infinite;
+}
+              
+/* --- Sistem Bar Stat Panjang --- */              
+.stats-container {              
+    text-align: left;              
+    margin: 20px 0;              
 }              
               
-.addon-box p{              
-    margin:6px 0;              
+.stat-row {              
+    margin-bottom: 16px;              
+}              
+              
+.stat-info {              
+    display: flex;              
+    justify-content: space-between;              
+    font-size: 14px;              
+    font-weight: bold;              
+    color: #e0e0e0;              
+    margin-bottom: 6px;              
+}              
+              
+.stat-bar-track {              
+    width: 100%;              
+    height: 12px;              
+    background: #252525;              
+    border-radius: 20px;              
+    overflow: hidden;              
+}              
+              
+.stat-bar-fill {              
+    height: 100%;              
+    width: 0%;              
+    background-color: #ffffff;              
+    border-radius: 20px;              
+    transition: width 0.5s ease, background-color 0.3s ease;              
 }              
               
 .btn{              
@@ -183,21 +198,21 @@ body{
     background:#009cff;              
 }              
 
-/* --- CSS OVERLAY BYPASS AUTOPLAY (Hitam Pekat & Transisi Merah) --- */              
+/* --- CSS OVERLAY BYPASS AUTOPLAY --- */              
 .music-overlay {              
     position: fixed;              
     top: 0;              
     left: 0;              
     width: 100%;              
     height: 100%;              
-    background: #000000; /* Hitam pekat murni[span_3](start_span)[span_3](end_span) */              
+    background: #000000;              
     opacity: 1;              
     display: flex;              
     justify-content: center;              
     align-items: center;              
     z-index: 99999;              
     transition: background-color 0.1s ease, opacity 0.5s ease, visibility 0.5s ease;              
-    cursor: default; /* Standar, karena luar kotak tidak bisa diklik */              
+    cursor: default;              
 }              
 .music-overlay.hidden {              
     opacity: 0;              
@@ -214,7 +229,7 @@ body{
     max-width: 90%;              
     width: 340px;              
     transition: opacity 0.1s ease;              
-    cursor: pointer; /* Hanya kotak ini yang memicu pointer klik */              
+    cursor: pointer;              
 }              
 .overlay-logo {              
     width: 80px;              
@@ -245,7 +260,7 @@ body{
 </head>              
 <body>              
 
-<!-- Overlay Interaksi Pengguna (Hitam Pekat Murni)[span_4](start_span)[span_4](end_span) -->
+<!-- Overlay Interaksi Pengguna -->
 <div id="music-overlay" class="music-overlay">
     <div id="overlay-box" class="overlay-box">
         <img src="https://www.image2url.com/r2/default/images/1783572101896-a2b234e5-7c48-4093-b777-3a5df5c30cd2.png" alt="Logo FDC" class="overlay-logo">
@@ -254,10 +269,9 @@ body{
     </div>
 </div>
 
-<!-- Elemen Utama Audio dengan Loop Aktif[span_5](start_span)[span_5](end_span) -->
-<audio id="bg-music" loop preload="auto">
-    <source src="https://genetic-green-ds1woxah.edgeone.dev/I%20am%20just%20their%20creator.mp3" type="audio/mpeg">
-    Browser Anda tidak mendukung elemen audio.
+<!-- Tag Audio Asli (Menggunakan raw=1 agar direct stream) -->
+<audio id="bg-music" loop preload="auto" style="display:none;">
+    <source src="https://www.dropbox.com/scl/fi/gus101gx21qo0cw4nl60q/I_ll-Do-It-x-Mine-Sped-Up.mp3?rlkey=zxubbovvjrq5mcuci4nri6et9&st=avxdsrkr&raw=1" type="audio/mpeg">
 </audio>
               
 <div class="header">              
@@ -280,75 +294,146 @@ body{
 </div>              
               
 <h1 class="main-title">Furry Destroyer Class Boss</h1>              
-
-<!-- Teks Tingkatan Berada di Tengah Layout Sejajar dengan Addon Box[span_6](start_span)[span_6](end_span) -->
-<div class="tier-list">              
-    <span>Weak</span>              
-    <span>average</span>              
-    <span>Strong</span>              
-    <span>Mad</span>              
-    <span>Void</span>              
-    <span>God</span>              
-    <span>Null</span>              
-    <span>Supernull</span>              
-    <span>Hypernull</span>              
-</div>
               
+<!-- Addon 1: Flash Killer -->
 <div class="addon-box" style="animation-delay: -2.5s;">              
     <img class="addon-image"              
          src="https://www.image2url.com/r2/default/images/1783538334963-157fa0ad-4249-4e8a-84ba-71b42766c900.png"              
          alt="Flash Killer">              
     <h2>Flash Killer</h2>              
-    <p>Attack : Weak~Mad</p>              
-    <p>Power : Strong~Void</p>              
-    <p>Defense : Weak~Mad</p>              
-    <p>Life : Badass/Killable</p>              
-    <p>Version : 1.26+</p>              
+    <div class="class-badge" data-text="Class : Badass/Killable">Class : Badass/Killable</div>
+    
+    <div class="stats-container">
+        <div class="stat-row">
+            <div class="stat-info"><span>⚡ Power</span><span>85%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>💨 Movement</span><span>70%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>⚔️ Attack</span><span>95%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>🫀 Health</span><span>60%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>🛡️ Defense</span><span>75%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+    </div>
+
     <a class="btn" href="https://www.dropbox.com/scl/fi/3d2wltmyd5wsk6s1o29nz/FDC-Flash-Killer.mcaddon?rlkey=zr8knzubnq55heyj23f495sv4&st=qyespbnm&dl=0">              
         Download :)              
     </a>              
 </div>              
               
+<!-- Addon 2: DURIN -->
 <div class="addon-box" style="animation-delay: -3.5s;">              
     <img class="addon-image"              
          src="https://www.image2url.com/r2/default/images/1784139307905-d7851b2b-d805-4d55-bf66-7ce3998acd19.png"              
          alt="Durin">              
     <h2>D U R I N</h2>              
-    <p>Attack : Weak~God</p>              
-    <p>Power : Mad~Void</p>              
-    <p>Defense : Strong~God</p>              
-    <p>Life : Badass/Killable</p>              
-    <p>Version : 1.21.100~1.26</p>              
+    <div class="class-badge" data-text="Class : Badass/Killable">Class : Badass/Killable</div>
+    
+    <div class="stats-container">
+        <div class="stat-row">
+            <div class="stat-info"><span>⚡ Power</span><span>90%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>💨 Movement</span><span>20%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>⚔️ Attack</span><span>85%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>🫀 Health</span><span>75%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>🛡️ Defense</span><span>95%</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+    </div>
+
     <a class="btn" href="https://www.dropbox.com/scl/fi/eoyibj3td9jmmv2c0sqnd/FDC-Shadow-Bloodwyrm-Durin.mcaddon?rlkey=lljavl7k4elcsaix5vg2z874t&st=z624xmi6&dl=0">              
         Download :)              
     </a>              
 </div>              
               
+<!-- Addon 3: WANDERER -->
 <div class="addon-box" style="animation-delay: -4.5s;">              
     <img class="addon-image"               
          src="https://www.image2url.com/r2/default/images/1784300880426-a2af5036-c19e-4211-a732-a95356fbd477.png"              
          alt="Wanderer">              
     <h2>W A N D E R E R</h2>              
-    <p>Attack : ?</p>              
-    <p>Power : ?</p>              
-    <p>Defense : ?</p>              
-    <p>Life : ?</p>              
-    <p>Version : ?</p>              
+    <div class="class-badge" data-text="Class : ?/?">Class : ?/?</div>
+    
+    <div class="stats-container">
+        <div class="stat-row">
+            <div class="stat-info"><span>⚡ Power</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>💨 Movement</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>⚔️ Attack</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>🫀 Health</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>🛡️ Defense</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+    </div>
+
     <a class="btn" href="#">              
         Soon :!              
     </a>              
 </div>
 
+<!-- Addon 4: Unknown -->
 <div class="addon-box" style="animation-delay: -5.5s;">              
     <img class="addon-image"               
          src="https://www.image2url.com/r2/default/images/1783575356370-c1a22139-f002-4233-96e6-fe2e33893c31.png"              
          alt="999">              
     <h2>Unknown</h2>              
-    <p>Attack : ?</p>              
-    <p>Power : ?</p>              
-    <p>Defense : ?</p>              
-    <p>Life : ?</p>              
-    <p>Version : ?</p>              
+    <div class="class-badge" data-text="Class : ?/?">Class : ?/?</div>
+    
+    <div class="stats-container">
+        <div class="stat-row">
+            <div class="stat-info"><span>⚡ Power</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>💨 Movement</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>⚔️ Attack</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>🫀 Health</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-info"><span>🛡️ Defense</span><span>?</span></div>
+            <div class="stat-bar-track"><div class="stat-bar-fill"></div></div>
+        </div>
+    </div>
+
     <a class="btn" href="#">              
         Soon :!              
     </a>              
@@ -356,29 +441,96 @@ body{
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('bg-music');
     const overlay = document.getElementById('music-overlay');
     const overlayBox = document.getElementById('overlay-box');
+    const bgMusic = document.getElementById('bg-music');
     let hasClicked = false;
 
-    // Fungsi pemutar audio murni (menggunakan preloaded data agar instan & tidak macet)
-    function playAudioInstantly() {
-        audio.muted = false;       // Memastikan suara aktif
-        audio.currentTime = 0;     // Selalu reset durasi lagu kembali ke awal 
+    // --- BARU: ANTI-BFCACHE RESET ---
+    // Memaksa status tombol reset kembali menjadi FALSE jika user masuk kembali setelah keluar paksa
+    window.addEventListener('pageshow', (event) => {
+        hasClicked = false;
+    });
 
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(err => {
-                console.error("Browser memblokir pemutaran, mencoba ulang...", err);
-                // Metode alternatif jika terjadi kendala siklus state pada browser tertentu
-                setTimeout(() => { audio.play().catch(e => console.log(e)); }, 30);
-            });
+    // --- SISTEM DETEKSI DAN PEWARNAAN BAR OTOMATIS ---
+    document.querySelectorAll('.stat-row').forEach(row => {
+        const infoSpan = row.querySelector('.stat-info span:last-child');
+        const fillDiv = row.querySelector('.stat-bar-fill');
+        
+        if (infoSpan && fillDiv) {
+            const textValue = infoSpan.textContent.trim();
+            const percent = parseInt(textValue, 10);
+            
+            if (isNaN(percent) || percent <= 0) {
+                fillDiv.style.width = '0%';
+                fillDiv.style.backgroundColor = '#ffffff'; 
+            } else {
+                fillDiv.style.width = percent + '%';
+                if (percent <= 23) {
+                    fillDiv.style.backgroundColor = '#ffffff'; 
+                } else if (percent <= 48) {
+                    fillDiv.style.backgroundColor = '#ffff00'; 
+                } else if (percent <= 70) {
+                    fillDiv.style.backgroundColor = '#ffa500'; 
+                } else {
+                    fillDiv.style.backgroundColor = '#ff0000'; 
+                }
+            }
         }
+    });
+
+    // --- LOGIKA UTAMA: EFEK GLITCH SELEKSI MULTI-BOX SECARA ACAK ---
+    const badges = document.querySelectorAll('.class-badge');
+    const glitchPool = '!@#$%^&*()_+{}|:"<>?`1234567890-=[]\\;,./';
+
+    function runGlitchForBadge(badge) {
+        const originalText = badge.getAttribute('data-text');
+        let startTime = Date.now();
+        badge.classList.add('glitching-active');
+
+        const glitchInterval = setInterval(() => {
+            let timePassed = Date.now() - startTime;
+            if (timePassed >= 2000) { 
+                clearInterval(glitchInterval);
+                badge.textContent = originalText;
+                badge.classList.remove('glitching-active');
+            } else {
+                let scrambled = '';
+                for (let i = 0; i < originalText.length; i++) {
+                    if (originalText[i] === ' ' || originalText[i] === ':') {
+                        scrambled += originalText[i];
+                    } else if (Math.random() > 0.25) {
+                        scrambled += glitchPool[Math.floor(Math.random() * glitchPool.length)];
+                    } else {
+                        scrambled += originalText[i];
+                    }
+                }
+                badge.textContent = scrambled;
+            }
+        }, 40);
     }
 
-    // Menangani jalannya efek kilatan merah dan masuk ke halaman utama[span_7](start_span)[span_7](end_span)
+    function triggerRandomGlitchCycle() {
+        const totalBoxes = badges.length;
+        const numToGlitch = Math.floor(Math.random() * totalBoxes) + 1;
+        const indices = Array.from({ length: totalBoxes }, (_, i) => i);
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        const chosenIndices = indices.slice(0, numToGlitch);
+        chosenIndices.forEach(idx => {
+            const badge = badges[idx];
+            if (!badge.classList.contains('glitching-active')) {
+                runGlitchForBadge(badge);
+            }
+        });
+        setTimeout(triggerRandomGlitchCycle, 7000);
+    }
+    triggerRandomGlitchCycle();
+
+    // --- REVISI UTAMA: INTERAKSI AMAN DAN PREVENT CRASH ENGINE AUDIO ---
     function triggerRedFlashAndEnter(e) {
-        // Hentikan penanganan ganda sentuhan pada layar ponsel pintar
         if (e.type === 'touchstart') {
             e.preventDefault();
         }
@@ -386,32 +538,48 @@ document.addEventListener('DOMContentLoaded', () => {
         if (hasClicked) return;
         hasClicked = true;
 
-        // Jalankan audio secara instan sewaktu klik terdeteksi
-        playAudioInstantly();
+        if (bgMusic) {
+            // Bersihkan sisa memori stream yang berpotensi rusak/menggantung akibat keluar paksa
+            bgMusic.load(); 
+            
+            // Jeda mikro-detik agar browser siap, lalu eksekusi lagu murni
+            setTimeout(() => {
+                bgMusic.play().then(() => {
+                    // AMAN: Jalankan pembersihan panel notifikasi OS HANYA setelah musik terbukti menyala.
+                    // Ini mencegah browser membekukan interaksi audio sebelum dimulai.
+                    if ('mediaSession' in navigator) {
+                        try {
+                            navigator.mediaSession.metadata = new MediaMetadata({
+                                title: ' ',
+                                artist: ' ',
+                                album: ' ',
+                                artwork: []
+                            });
+                            navigator.mediaSession.playbackState = 'none';
+                            navigator.mediaSession.setActionHandler('play', () => {});
+                            navigator.mediaSession.setActionHandler('pause', () => {});
+                        } catch (err) {
+                            console.log("MediaSession aman dilompati.");
+                        }
+                    }
+                }).catch(err => {
+                    console.log("Metode utama gagal, jalankan pemicu darurat kedua:", err);
+                    setTimeout(() => { bgMusic.play(); }, 100);
+                });
+            }, 40);
+        }
 
-        // SEMBUNYIKAN KOTAK ELEMEN UTAMA SEKETIKA (Logo & Tulisan Enter & Choose)[span_8](start_span)[span_8](end_span)
         if (overlayBox) {
             overlayBox.style.display = 'none';
         }
-
-        // Ubah latar belakang menjadi merah menyala polos seketika[span_9](start_span)[span_9](end_span)
         overlay.style.backgroundColor = '#ff0000';
-
-        // Berikan delay 0.5 detik dalam kondisi layar merah polos sebelum masuk utama[span_10](start_span)[span_10](end_span)
         setTimeout(() => {
             overlay.classList.add('hidden');
         }, 500);
     }
 
-    // SEKARANG LISTENERS HANYA DITARGETKAN KE KOTAKNYA SAJA (Bukan seluruh overlay layar luar)[span_11](start_span)[span_11](end_span)
     overlayBox.addEventListener('click', triggerRedFlashAndEnter);
     overlayBox.addEventListener('touchstart', triggerRedFlashAndEnter, { passive: false });
-
-    // Memastikan loop musik berjalan lancar tanpa terputus di tengah jalan[span_12](start_span)[span_12](end_span)
-    audio.addEventListener('ended', () => {
-        audio.currentTime = 0;
-        audio.play().catch(err => console.log("Gagal memutar ulang loop musik:", err));
-    });
 });
 </script>
               
